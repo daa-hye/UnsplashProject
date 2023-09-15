@@ -1,0 +1,11 @@
+/* 
+  Localizable.strings
+  UnsplashProject
+
+  Created by 박다혜 on 2023/09/11.
+  
+*/
+
+"nickname_placeholder" = "Enter Nickname";
+
+"nickname_result" = "My nickname is %@, %@";
