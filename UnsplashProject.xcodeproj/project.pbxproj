@@ -34,6 +34,7 @@
 		53D5CD9B2AB7D3470064CB3B /* NumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D5CD9A2AB7D3470064CB3B /* NumberViewController.swift */; };
 		53D5CD9D2AB7E7CB0064CB3B /* SimpleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D5CD9C2AB7E7CB0064CB3B /* SimpleViewModel.swift */; };
 		53D5CDA42AB8450B0064CB3B /* RandomPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D5CDA32AB8450B0064CB3B /* RandomPhotoViewController.swift */; };
+		53D5CDA62AB84BD50064CB3B /* RandomPhotoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D5CDA52AB84BD50064CB3B /* RandomPhotoViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,6 +72,7 @@
 		53D5CD9A2AB7D3470064CB3B /* NumberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberViewController.swift; sourceTree = "<group>"; };
 		53D5CD9C2AB7E7CB0064CB3B /* SimpleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleViewModel.swift; sourceTree = "<group>"; };
 		53D5CDA32AB8450B0064CB3B /* RandomPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomPhotoViewController.swift; sourceTree = "<group>"; };
+		53D5CDA52AB84BD50064CB3B /* RandomPhotoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomPhotoViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +144,7 @@
 				53D5CD3F2AB02A6D0064CB3B /* APIService.swift */,
 				53D5CD412AB02B4B0064CB3B /* PhotoViewController.swift */,
 				53D5CD432AB02DA90064CB3B /* PhotoViewModel.swift */,
+				53D5CDA52AB84BD50064CB3B /* RandomPhotoViewModel.swift */,
 				53D5CDA32AB8450B0064CB3B /* RandomPhotoViewController.swift */,
 			);
 			path = Photo;
@@ -253,6 +256,7 @@
 				534D67B22AAEBAD700281642 /* String+Extension.swift in Sources */,
 				534D67952AAE993E00281642 /* ViewController.swift in Sources */,
 				534D67912AAE993E00281642 /* AppDelegate.swift in Sources */,
+				53D5CDA62AB84BD50064CB3B /* RandomPhotoViewModel.swift in Sources */,
 				53D5CD332AAFED5B0064CB3B /* LoginViewController.swift in Sources */,
 				53D5CD622AB296F30064CB3B /* SimpleTablViewController.swift in Sources */,
 				53D5CD402AB02A6D0064CB3B /* APIService.swift in Sources */,

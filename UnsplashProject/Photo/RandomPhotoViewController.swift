@@ -6,24 +6,31 @@
 //
 
 import UIKit
+import Kingfisher
 
 class RandomPhotoViewController: UIViewController {
+
+    @IBOutlet var imageView: UIImageView!
+    @IBOutlet var randomButton: UIButton!
+
+    var viewModel = RandomPhotoViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
-    }
-    
+        viewModel.photo.bind { url in
+            guard let url = url else { return }
+            DispatchQueue.main.async {
+                self.imageView.kf.setImage(with: url)
+            }
+        }
+        viewModel.fetchPhoto()
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        randomButton.addTarget(self, action: #selector(randomButtonClicked), for: .touchUpInside)
     }
-    */
+
+    @objc func randomButtonClicked() {
+        viewModel.fetchPhoto()
+    }
 
 }
