@@ -15,39 +15,62 @@ class SimpleCollectionViewController: UIViewController {
         case second = 1
     }
 
-    let list = [User(name: "Hue", age: 23),
-                User(name: "Hue", age: 23),
-                User(name: "Jack", age: 21),
-                User(name: "Bran", age: 20),
-                User(name: "Kokojong", age: 20)]
-
-    let list2 = [User(name: "dahye", age: 10),
-                User(name: "Hue", age: 23),
-                User(name: "Jack", age: 21),
-                User(name: "Bran", age: 20),
-                User(name: "Kokojong", age: 20)]
-
     var collectionView = UICollectionView(frame: .zero, collectionViewLayout: createLayout())
-
-    var cellRegistration: UICollectionView.CellRegistration<UICollectionViewListCell, User>!
 
     var dataSource: UICollectionViewDiffableDataSource<Section, User>!
 
+    let viewModel = SimpleViewModel()
+
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        let searchBar = UISearchBar()
+        searchBar.delegate = self
+        navigationItem.titleView = searchBar
 
         view.addSubview(collectionView)
         collectionView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
 
-        dataSource = UICollectionViewDiffableDataSource(collectionView: collectionView, cellProvider: { collectionView, indexPath, itemIdentifier in
-            let cell = collectionView.dequeueConfiguredReusableCell(using: self.cellRegistration, for: indexPath, item: itemIdentifier)
-            return cell
-        })
+        collectionView.delegate = self
+
+        configureDataSource()
+
+        viewModel.list.bind { user in
+            self.updateSnapshot()
+        }
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2 ) {
+            self.viewModel.append()
+        }
+
+    }
+
+    func updateSnapshot() {
+        var snapshot = NSDiffableDataSourceSnapshot<Section, User>()
+
+        snapshot.appendSections(Section.allCases) //이렇게도됨
+        snapshot.appendItems(viewModel.list2, toSection: Section.second)
+        snapshot.appendItems(viewModel.list.value, toSection: Section.first)
+
+        dataSource.apply(snapshot)
+    }
+
+    static private func createLayout() -> UICollectionViewLayout {
+
+        var configuration = UICollectionLayoutListConfiguration(appearance: .insetGrouped)
+        configuration.showsSeparators = false
+        configuration.backgroundColor = .systemTeal
+        let layout = UICollectionViewCompositionalLayout.list(using: configuration)
+        return layout
+
+    }
+
+    private func configureDataSource() {
 
         // UICollectoinView.CellRegistration : ios14, 메서드 대신 제네릭 사용, 셀이 생성될 때마다 클로저 호출
-        cellRegistration = UICollectionView.CellRegistration(handler: { cell, indexPath, itemIdentifier in
+        let cellRegistration = UICollectionView.CellRegistration<UICollectionViewListCell, User>(handler: { cell, indexPath, itemIdentifier in
             var content = UIListContentConfiguration.valueCell()
             content.text = itemIdentifier.name
             content.textProperties.color = .blue
@@ -67,27 +90,38 @@ class SimpleCollectionViewController: UIViewController {
 
         })
 
-        var snapshot = NSDiffableDataSourceSnapshot<Section, User>()
-        snapshot.appendSections(Section.allCases) //이렇게도됨
-        snapshot.appendItems(list, toSection: Section.second)
-        snapshot.appendItems(list2, toSection: Section.first)
+        //CellForItemAt
+        dataSource = UICollectionViewDiffableDataSource(collectionView: collectionView, cellProvider: { collectionView, indexPath, itemIdentifier in
 
-        dataSource.apply(snapshot)
-
-    }
-
-    static func createLayout() -> UICollectionViewLayout {
-
-        var configuration = UICollectionLayoutListConfiguration(appearance: .insetGrouped)
-        configuration.showsSeparators = false
-        configuration.backgroundColor = .systemTeal
-        let layout = UICollectionViewCompositionalLayout.list(using: configuration)
-        return layout
+            let cell = collectionView.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: itemIdentifier)
+            return cell
+        })
 
     }
 
 }
 
+extension SimpleCollectionViewController: UISearchBarDelegate {
+
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        viewModel.insertUser(name: searchBar.text!)
+    }
+
+}
+
+extension SimpleCollectionViewController: UICollectionViewDelegate {
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+
+        guard let user = dataSource.itemIdentifier(for: indexPath) else {
+            return
+        }
+
+        dump(user)
+        //viewModel.removeUser(idx: indexPath.row)
+    }
+
+}
 
 
 //extension SimpleCollectionViewController: UICollectionViewDataSource {

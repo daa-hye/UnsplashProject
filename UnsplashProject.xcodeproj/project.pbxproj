@@ -31,6 +31,9 @@
 		53D5CD622AB296F30064CB3B /* SimpleTablViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D5CD612AB296F30064CB3B /* SimpleTablViewController.swift */; };
 		53D5CD642AB2A0120064CB3B /* SimpleCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D5CD632AB2A0120064CB3B /* SimpleCollectionViewController.swift */; };
 		53D5CD672AB2A9D70064CB3B /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 53D5CD662AB2A9D70064CB3B /* SnapKit */; };
+		53D5CD9B2AB7D3470064CB3B /* NumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D5CD9A2AB7D3470064CB3B /* NumberViewController.swift */; };
+		53D5CD9D2AB7E7CB0064CB3B /* SimpleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D5CD9C2AB7E7CB0064CB3B /* SimpleViewModel.swift */; };
+		53D5CDA42AB8450B0064CB3B /* RandomPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D5CDA32AB8450B0064CB3B /* RandomPhotoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,6 +68,9 @@
 		53D5CD552AB13DB60064CB3B /* dahyeObservable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dahyeObservable.swift; sourceTree = "<group>"; };
 		53D5CD612AB296F30064CB3B /* SimpleTablViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleTablViewController.swift; sourceTree = "<group>"; };
 		53D5CD632AB2A0120064CB3B /* SimpleCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleCollectionViewController.swift; sourceTree = "<group>"; };
+		53D5CD9A2AB7D3470064CB3B /* NumberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberViewController.swift; sourceTree = "<group>"; };
+		53D5CD9C2AB7E7CB0064CB3B /* SimpleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleViewModel.swift; sourceTree = "<group>"; };
+		53D5CDA32AB8450B0064CB3B /* RandomPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomPhotoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +130,7 @@
 				53D5CD362AAFFDF50064CB3B /* SampleViewController.swift */,
 				53D5CD382AB001560064CB3B /* SampleViewModel.swift */,
 				53D5CD3A2AB00E460064CB3B /* LoginViewModel.swift */,
+				53D5CD9A2AB7D3470064CB3B /* NumberViewController.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -135,6 +142,7 @@
 				53D5CD3F2AB02A6D0064CB3B /* APIService.swift */,
 				53D5CD412AB02B4B0064CB3B /* PhotoViewController.swift */,
 				53D5CD432AB02DA90064CB3B /* PhotoViewModel.swift */,
+				53D5CDA32AB8450B0064CB3B /* RandomPhotoViewController.swift */,
 			);
 			path = Photo;
 			sourceTree = "<group>";
@@ -154,6 +162,7 @@
 			children = (
 				53D5CD612AB296F30064CB3B /* SimpleTablViewController.swift */,
 				53D5CD632AB2A0120064CB3B /* SimpleCollectionViewController.swift */,
+				53D5CD9C2AB7E7CB0064CB3B /* SimpleViewModel.swift */,
 			);
 			path = New;
 			sourceTree = "<group>";
@@ -250,13 +259,16 @@
 				53D5CD642AB2A0120064CB3B /* SimpleCollectionViewController.swift in Sources */,
 				53D5CD422AB02B4B0064CB3B /* PhotoViewController.swift in Sources */,
 				53D5CD3E2AB02A5C0064CB3B /* Photo.swift in Sources */,
+				53D5CD9D2AB7E7CB0064CB3B /* SimpleViewModel.swift in Sources */,
 				53D5CD542AB13AA60064CB3B /* CalculateViewModel.swift in Sources */,
 				53D5CD522AB139E00064CB3B /* CalculateViewController.swift in Sources */,
+				53D5CDA42AB8450B0064CB3B /* RandomPhotoViewController.swift in Sources */,
 				53D5CD352AAFF2F70064CB3B /* Observable.swift in Sources */,
 				534D67932AAE993E00281642 /* SceneDelegate.swift in Sources */,
 				53D5CD392AB001560064CB3B /* SampleViewModel.swift in Sources */,
 				53D5CD442AB02DA90064CB3B /* PhotoViewModel.swift in Sources */,
 				53D5CD372AAFFDF50064CB3B /* SampleViewController.swift in Sources */,
+				53D5CD9B2AB7D3470064CB3B /* NumberViewController.swift in Sources */,
 				53D5CD3B2AB00E460064CB3B /* LoginViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
